@@ -5,3 +5,44 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#100.times do |n|
+#  email = Faker::Internet.email
+#  password = "password"
+#  User.create!(email: email,
+#    password: password,
+#    password_confirmation: password,
+#  )
+#end
+
+100.times do |n|
+  if n%6 == 0
+    Faker::Config.locale = 'ja'
+    name = Faker::Name.name
+  elsif n%6 == 1
+    name = Faker::Pokemon.name
+  elsif n%6 == 2
+    name = Faker::Superhero.name
+  else
+    Faker::Config.locale = 'ja'
+    name = Faker::Name.name
+  end
+  email = Faker::Internet.email
+  password = Faker::Internet.password
+  User.create!(email: email, name: name, password: password, password_confirmation: password,)
+end
+
+100.times do |n|
+  title = Faker::Name.title
+  if n%4 == 0
+    content = Faker::Hacker.say_something_smart
+  elsif n%4 == 1
+    content = Faker::Yoda.quote
+  elsif n%4 == 2
+    content = Faker::Shakespeare.hamlet_quote
+  else
+    content = Faker::Hipster.paragraph
+  end
+  user_id = rand(100)+1
+  Blog.create!(title: title, content: content, user_id: user_id,)
+end
