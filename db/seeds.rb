@@ -15,6 +15,7 @@
 #  )
 #end
 
+=begin
 100.times do |n|
   if n%6 == 0
     Faker::Config.locale = 'ja'
@@ -46,3 +47,4 @@ end
   user_id = rand(100)+1
   Blog.create!(title: title, content: content, user_id: user_id,)
 end
+=end
