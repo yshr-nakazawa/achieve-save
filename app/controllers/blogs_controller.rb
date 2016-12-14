@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
       redirect_to blogs_path, notice: "ブログを作成しました！"
       NoticeMailer.sendmail_blog(@blog).deliver
     else
-      render action: 'new'
+      render 'new'
     end
   end
 
@@ -37,7 +37,7 @@ class BlogsController < ApplicationController
     if @blog.update(blogs_params)
       redirect_to blogs_path, notice: "ブログを編集しました！"
     else
-      render action: 'edit'
+      render 'edit'
     end
   end
 
