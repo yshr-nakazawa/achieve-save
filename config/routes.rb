@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :poems, only: [:index]
+  resources :poems, only: [:index, :show]
 
   root 'top#index'
 
