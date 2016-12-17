@@ -4,7 +4,6 @@ class PoemsController < ApplicationController
   end
 
   def show
-    binding.pry
     @poem = Poem.find(params[:id])
   end
 end
