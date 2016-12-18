@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @task.user %>
+  <%= @task.user.name %>
 </p>
 
 <p>
@@ -17,12 +17,12 @@
 
 <p>
   <strong>Deadline:</strong>
-  <%= @task.deadline %>
+  <%= @task.deadline.strftime("%Y年%m月%d日 %H時%M分") %>
 </p>
 
 <p>
   <strong>Charge:</strong>
-  <%= @task.charge_id %>
+  <%= @task.charge.name %>
 </p>
 
 <p>

@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id %><br>
+    <%= f.hidden_field :charge_id %>
   </div>
   <div class="field">
     <%= f.label :title %><br>
@@ -26,10 +26,6 @@
   <div class="field">
     <%= f.label :deadline %><br>
     <%= f.datetime_select :deadline %>
-  </div>
-  <div class="field">
-    <%= f.label :charge_id %><br>
-    <%= f.number_field :charge_id %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
