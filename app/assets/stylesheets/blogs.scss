@@ -39,7 +39,8 @@ input[type="submit"].btn-block{
     line-height: 60px;
     text-decoration: none;
   }
-  &:hover {
+  a:hover {
+    border-radius: 50px;
     opacity: 0.7;
   }
 }
