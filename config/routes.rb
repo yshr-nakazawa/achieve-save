@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :submit_requests
   resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
