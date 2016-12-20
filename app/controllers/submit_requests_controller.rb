@@ -1,10 +1,11 @@
 class SubmitRequestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_submit_request, only: [:show, :edit, :update, :destroy]
 
   # GET /submit_requests
   # GET /submit_requests.json
   def index
-    @submit_requests = SubmitRequest.all
+    @submit_requests = SubmitRequest.where(user_id: current_user.id)
   end
 
   # GET /submit_requests/1
@@ -14,7 +15,7 @@ class SubmitRequestsController < ApplicationController
 
   # GET /submit_requests/new
   def new
-    @submit_request = SubmitRequest.new
+    @submit_request = current_user.submit_requests.build
   end
 
   # GET /submit_requests/1/edit
@@ -24,11 +25,11 @@ class SubmitRequestsController < ApplicationController
   # POST /submit_requests
   # POST /submit_requests.json
   def create
-    @submit_request = SubmitRequest.new(submit_request_params)
+    @submit_request = current_user.submit_requests.build(submit_request_params)
 
     respond_to do |format|
       if @submit_request.save
-        format.html { redirect_to @submit_request, notice: 'Submit request was successfully created.' }
+        format.html { redirect_to @submit_request, notice: 'タスク依頼を作成しました。' }
         format.json { render :show, status: :created, location: @submit_request }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class SubmitRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @submit_request.update(submit_request_params)
-        format.html { redirect_to @submit_request, notice: 'Submit request was successfully updated.' }
+        format.html { redirect_to @submit_request, notice: 'タスク依頼を更新しました。' }
         format.json { render :show, status: :ok, location: @submit_request }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class SubmitRequestsController < ApplicationController
   def destroy
     @submit_request.destroy
     respond_to do |format|
-      format.html { redirect_to submit_requests_url, notice: 'Submit request was successfully destroyed.' }
+      format.html { redirect_to submit_requests_url, notice: 'タスク依頼を削除しました。' }
       format.json { head :no_content }
     end
   end

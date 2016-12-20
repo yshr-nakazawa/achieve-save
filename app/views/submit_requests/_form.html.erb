@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :task_id %><br>
-    <%= f.text_field :task_id %>
+    <% #自分が依頼元のタスクのみ選択肢とする %>
+    <%= f.collection_select :task_id, Task.where(charge_id: current_user.id), :id, :title %>
   </div>
   <div class="field">
     <%= f.label :message %><br>
@@ -25,7 +26,8 @@
   </div>
   <div class="field">
     <%= f.label :request_user_id %><br>
-    <%= f.number_field :request_user_id %>
+    <% #依頼先は自分以外のユーザーを選択肢とする %>
+    <%= f.collection_select :request_user_id, User.where.not(id: current_user.id), :id, :name %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
