@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :submit_requests
+  resources :submit_requests do
+    get 'inbox', on: :collection
+  end
   resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

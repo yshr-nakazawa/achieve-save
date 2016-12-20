@@ -62,6 +62,10 @@ class SubmitRequestsController < ApplicationController
     end
   end
 
+  def inbox
+    @submit_requests = SubmitRequest.where(request_user_id: current_user.id).where(status: 1)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_submit_request
