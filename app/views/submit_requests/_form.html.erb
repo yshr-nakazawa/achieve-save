@@ -11,10 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+  <%= f.hidden_field :user_id %>
+
   <div class="field">
     <%= f.label :task_id %><br>
     <% #自分が依頼元のタスクのみ選択肢とする %>

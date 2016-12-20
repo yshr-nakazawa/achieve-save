@@ -17,10 +17,10 @@
   <tbody>
     <% @submit_requests.each do |submit_request| %>
       <tr>
-        <td><%= submit_request.user %></td>
-        <td><%= submit_request.task %></td>
+        <td><%= submit_request.user.name %></td>
+        <td><%= submit_request.task.title %></td>
         <td><%= submit_request.message %></td>
-        <td><%= submit_request.request_user_id %></td>
+        <td><%= User.find(submit_request.request_user_id).name %></td>
         <td><%= submit_request.status %></td>
         <td><%= link_to 'Show', submit_request %></td>
         <td><%= link_to 'Edit', edit_submit_request_path(submit_request) %></td>
