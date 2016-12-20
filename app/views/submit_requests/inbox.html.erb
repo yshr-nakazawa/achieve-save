@@ -23,8 +23,8 @@
         <td><%= User.find(submit_request.request_user_id).name %></td>
         <td><%= submit_request.status %></td>
         <td><%= link_to 'Show', submit_request %></td>
-        <td><%= link_to 'Edit', edit_submit_request_path(submit_request) %></td>
-        <td><%= link_to 'Destroy', submit_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '承認する', approve_submit_request_path(submit_request, submit_request: {status: 2}), method: :patch, data: { confirm: '承認しますか？'} %></td>
+        <td><%= link_to '却下する', reject_submit_request_path(submit_request, submit_request: {status: 9}), method: :patch, data: { confirm: '却下しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
