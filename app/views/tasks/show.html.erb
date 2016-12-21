@@ -2,18 +2,20 @@
 <div class="row">
   <div class="wrapper">
     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-      <p class="text-left"><strong>依頼者</strong></p>
-      <p class="text-left"><%= @task.user.name %></p>
-      <p class="text-left"><strong>タイトル</strong></p>
-      <p class="text-left"><%= @task.title %></p>
-      <p class="text-left"><strong>内容</strong></p>
-      <p class="text-left"><%= @task.content %></p>
-      <p class="text-left"><strong>期限</strong></p>
-      <p class="text-left"><%= @task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
-      <p class="text-left"><strong>担当者</strong></p>
-      <p class="text-left"><%= @task.charge.name %></p>
-      <p class="text-left"><strong>ステータス</strong></p>
-      <p class="text-left"><%= @task.status %></p>
+      <dl>
+        <dt class="text-left"><strong>依頼者</strong></dt>
+        <dd class="text-left"><%= @task.user.name %></dd><br>
+        <dt class="text-left"><strong>タイトル</strong></dt>
+        <dd class="text-left"><%= @task.title %></dd><br>
+        <dt class="text-left"><strong>内容</strong></dt>
+        <dd class="text-left"><%= @task.content %></dd><br>
+        <dt class="text-left"><strong>期限</strong></dt>
+        <dd class="text-left"><%= @task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></dd><br>
+        <dt class="text-left"><strong>担当者</strong></dt>
+        <dd class="text-left"><%= @task.charge.name %></dd><br>
+        <dt class="text-left"><strong>ステータス</strong></dt>
+        <dd class="text-left"><%= @task.status %></dd><br>
+      </dl>
       <%= link_to '編集', edit_task_path(@task) %> |
       <%= link_to '戻る', tasks_path %>
     </div>

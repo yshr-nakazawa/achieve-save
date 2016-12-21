@@ -1,29 +1,21 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @submit_request.user.name %>
-</p>
-
-<p>
-  <strong>Task:</strong>
-  <%= @submit_request.task.title %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @submit_request.message %>
-</p>
-
-<p>
-  <strong>Request user:</strong>
-  <%= User.find(@submit_request.request_user_id).name %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @submit_request.status %>
-</p>
-
-<%= link_to 'Edit', edit_submit_request_path(@submit_request) %> |
-<%= link_to 'Back', submit_requests_path %>
+<div class="row">
+  <div class="wrapper">
+    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+      <dl>
+        <dt class="text-left"><strong>依頼元</strong></dt>
+        <dd class="text-left"><%= @submit_request.user.name %></dd><br>
+        <dt class="text-left"><strong>タスクタイトル</strong></dt>
+        <dd class="text-left"><%= @submit_request.task.title %></dd><br>
+        <dt class="text-left"><strong>メッセージ</strong></dt>
+        <dd class="text-left"><%= @submit_request.message %></dd><br>
+        <dt class="text-left"><strong>依頼先</strong></dt>
+        <dd class="text-left"><%= User.find(@submit_request.request_user_id).name %></dd><br>
+        <dt class="text-left"><strong>ステータス</strong><dt>
+        <dd class="text-left"><%= @submit_request.status %></dd><br>
+        <%= link_to '編集', edit_submit_request_path(@submit_request) %> |
+        <%= link_to '戻る', submit_requests_path %>
+      </dl>
+    </div>
+  </div>
+</div>
