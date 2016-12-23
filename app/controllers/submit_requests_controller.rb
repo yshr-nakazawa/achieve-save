@@ -1,6 +1,6 @@
 class SubmitRequestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_submit_request, only: [:show, :edit, :update, :destroy, :approve]
+  before_action :set_submit_request, only: [:show, :edit, :update, :destroy, :approve, :reject]
 
   # GET /submit_requests
   # GET /submit_requests.json
