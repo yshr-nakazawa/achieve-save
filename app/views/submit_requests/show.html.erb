@@ -16,7 +16,7 @@
         <% if @submit_request.user.id == current_user.id && @submit_request.task.charge_id==current_user.id %>
           <%= link_to '編集', edit_submit_request_path(@submit_request) %> |
         <% end %>
-        <%= link_to '戻る', submit_requests_path %>
+        <%= link_to '戻る', :back %>
       </dl>
     </div>
   </div>
