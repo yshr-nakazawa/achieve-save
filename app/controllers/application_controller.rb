@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :current_notifications, if: :signed_in?
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.root_url, alert: exception.message
@@ -20,6 +21,10 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: PERMISSIBLE_ATTRIBUTES)
       devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES)
+    end
+
+    def current_notifications
+      @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
     end
 
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
   resources :submit_requests do
     get 'inbox', on: :collection
     member do
