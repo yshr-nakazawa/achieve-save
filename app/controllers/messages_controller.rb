@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
       end
     end
 
-    @message = @conversation.message.build
+    @message = @conversation.messages.build
   end
 
   def create
